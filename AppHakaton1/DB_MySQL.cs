@@ -92,7 +92,21 @@ using System.Collections.Generic;
             }
         }
 
-        public void DeletRowTimeT_FlightNumber(int FlightNumber)
+        public void clearTableDB(string NameTable)
+        {
+            try
+            {
+                string sql = "TRUNCATE TABLE `" + NameTable + "`";
+                objComand = new MySqlCommand(sql, obj);
+                objComand.ExecuteScalar();
+            }
+            catch
+            {
+
+            }
+        }
+
+    public void DeletRowTimeT_FlightNumber(int FlightNumber)
         {
             try
             {
