@@ -1,0 +1,65 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="419*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Считать файл" HorizontalAlignment="Left" Margin="529,524,0,0" VerticalAlignment="Top" Width="211" Height="62" Click="Button_Click"/>
+
+        <Canvas HorizontalAlignment="Left" Height="32" Margin="529,240,0,0" VerticalAlignment="Top" Width="31"/>
+        <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" Name="dGrid" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtFilePath" HorizontalAlignment="Left" Height="23" Margin="607,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <!--<DataGrid.Columns>
+                <DataGridTextColumn 
+                    Header="Дата рейса"
+                    Width="100"
+                    />
+                <DataGridTextColumn
+                    Header="Время по расписанию"
+                    Width="150"
+                    
+                    />
+                <DataGridTextColumn
+                    Header="Код авиакомпании"
+                    Width="150"
+                    
+                    />
+                <DataGridTextColumn
+                    Header="Номер рейса"
+                    Width="100"
+                    
+                    />
+                <DataGridTextColumn
+                    Header="Флаг прилет/вылет"
+                    Width="150"
+                    
+                    />
+                <DataGridTextColumn
+                    Header="Тип ВС"
+                    Width="100"
+                    />
+                <DataGridTextColumn
+                    Header="Стоянка ВС"
+                    Width="100"
+                    />
+                <DataGridTextColumn
+                    Header="Стоянка сектор"
+                    Width="150"
+                    />
+                <DataGridTextColumn
+                    Header="Название авиакпомпании"
+                    />
+            </DataGrid.Columns>
+        </DataGrid>-->
+    </Grid>
+</Window>
