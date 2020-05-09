@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="47,62,0,0" VerticalAlignment="Top" Width="100" Height="36" Click="Button_Click"/>
-
+        <Button Content="Загрузить файл с расписанием" HorizontalAlignment="Left" Margin="0,42,0,0" VerticalAlignment="Top" Width="177" Height="36" Click="Button_Click"/>
+        <Canvas HorizontalAlignment="Left" Height="32" Margin="529,240,0,0" VerticalAlignment="Top" Width="31"/>
+        <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" Name="dGrid" VerticalAlignment="Center" Height="198" Margin="186,42,154,179" Width="452" RenderTransformOrigin="0.535,0.409"/>
+        <TextBox x:Name="txtFilePath" HorizontalAlignment="Left" Height="23" Margin="607,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
     </Grid>
 </Window>

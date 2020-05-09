@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Microsoft.Office.Interop;
 using System.IO;
 using Microsoft.Win32;
+using System.Data;
+using System.Threading;
 
 namespace AppHakaton1
 {
@@ -23,6 +25,9 @@ namespace AppHakaton1
     /// </summary>
     public partial class MainWindow : Window
     {
+        OpenFileDialog openfile;
+        Thread threadExl;
+        getExcelData objExl;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,16 +35,44 @@ namespace AppHakaton1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*Создаем объект подключения к бд objSQL. В конструктор передаем параметры подключения */
-            DB_MySQL objSQL = new DB_MySQL("sql7.freesqldatabase.com", 3306, "sql7338923", "sql7338923", "bc9vSYmu5u");
 
-            /*Открываем сессию передачи данных в бд */
-            objSQL.openSessionMySQL();
+            openfile = new OpenFileDialog();
+            openfile.DefaultExt = ".xlsx";
+            openfile.Filter = "(.xlsx)|*.xlsx";
 
-            /*Проверяем доступность к бд */
-            MessageBox.Show("Доступ есть? " + objSQL.statusOpenSession().ToString());
+            var browsefile = openfile.ShowDialog();
 
-            
+
+            if (browsefile == true)
+            {
+                objExl = new getExcelData(openfile.FileName.ToString());
+                objExl.pushDB();
+                /*threadExl = new Thread(new ThreadStart(objExl.pushDB));
+
+                threadExl.Start();
+
+                while(objExl.reStat()!=true)
+                {
+                    
+                }
+                threadExl.Abort();*/
+
+                //objExl.pushDB();             
+
+
+                /*excelBook.Close(true, null, null);
+                excelApp.Quit();*/
+            }
+
+
         }
+
+
+
+        /* DB_MySQL objSQL = new DB_MySQL("sql7.freesqldatabase.com", 3306, "sql7338923", "sql7338923", "bc9vSYmu5u");
+
+  objSQL.openSessionMySQL();
+
+  MessageBox.Show("Доступ есть? " + objSQL.statusOpenSession().ToString());*/
     }
 }

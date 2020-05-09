@@ -50,16 +50,21 @@ using System.Collections.Generic;
             }
         }
 
-        public bool statusOpenSession()
+        public void closeSessionMySQL()
+        {
+                obj.Close();
+        }
+
+    public bool statusOpenSession()
         {
            return obj.Ping();
         }
 
-        public void CreatingNewRowTimetable(DateTime FlightDate, TimeSpan ScheduledTime, int AirlineCode, int FlightNumber, string FlagArrivalDeparture, string TypeAircraft, string AParking, string ParkingSector, string NameAirline)
+        public void CreatingNewRowTimetable(DateTime FlightDate, TimeSpan ScheduledTime, string CodeA, int AirlineCode, int FlightNumber, string FlagArrivalDeparture, string TypeAircraft, string AParking, string ParkingSector, string NameAirline)
         {
             try
             {
-                string sql = "INSERT INTO `Timetable`  (`FlightDate`, `ScheduledTime`, `AirlineCode`, `FlightNumber`, `FlagArrivalDeparture`, `TypeAircraft`, `AParking`,`ParkingSector`,`NameAirline`) VALUES ('" + FlightDate + "', '" + ScheduledTime + "', '" + AirlineCode + "', '" + FlightNumber + "', '" + FlagArrivalDeparture + "', '" + TypeAircraft + "', '" + AParking + "', '" + ParkingSector + "', '" + NameAirline + "')";
+                string sql = "INSERT INTO `Timetable`  (`FlightDate`, `ScheduledTime`, `CodeA`,  `AirlineCode`, `FlightNumber`, `FlagArrivalDeparture`, `TypeAircraft`, `AParking`,`ParkingSector`,`NameAirline`) VALUES ('" + FlightDate + "', '" + ScheduledTime + "', '" + CodeA + "','" + AirlineCode + "', '" + FlightNumber + "', '" + FlagArrivalDeparture + "', '" + TypeAircraft + "', '" + AParking + "', '" + ParkingSector + "', '" + NameAirline + "')";
                 objComand = new MySqlCommand(sql, obj);
                 objComand.ExecuteScalar();
 

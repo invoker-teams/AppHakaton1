@@ -158,6 +158,7 @@
     </Compile>
     <Compile Include="DB_MySQL.cs" />
     <Compile Include="Dijkstra.cs" />
+    <Compile Include="getExcelData.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
