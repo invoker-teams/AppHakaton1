@@ -28,6 +28,9 @@ namespace AppHakaton1
             excelRange = excelSheet.UsedRange;
         }
 
+        /*
+         * Метод для получения размера excel файла
+         */
         public int[] setRange()
         {
             int rowCnt, colCnt; //строка, столбец
@@ -47,7 +50,10 @@ namespace AppHakaton1
             mass[1] = excelRange.Columns.Count;
             return mass;
         }
-        
+
+        /*
+         * Метод для публикации данных в бд
+         */
         public void pushDB()
         {
             string strCellData = "";
@@ -112,9 +118,13 @@ namespace AppHakaton1
             x = true;
         }
 
-        public bool reStat()
+        /*
+         * Метод для закрытия работы с excel
+         */
+        public void closeExl()
         {
-            return x;
+            excelBook.Close(true, null, null);
+            excelApp.Quit();
         }
 
     }
