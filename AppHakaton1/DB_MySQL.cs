@@ -23,7 +23,7 @@ using System.Collections.Generic;
          * CreatingNewRowTimetable - отдельный метод для внесения данных в таблицу с расписанием
          * DeletRow_id - метод удаляющий данные в любой таблице по id
          * DeletRowTimeT_FlightNumber - удаляет запись из таблицы с расписанием по номеру рейса
-         * getTimeTimetable - получить расписание. НЕ ДОДЕЛАЛ!!!
+         * getTimeTimetable - получить расписание. Доделал ^^
          */
 
         public DB_MySQL(string Host, int Port, string Database, string Username, string Password)
