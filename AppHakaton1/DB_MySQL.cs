@@ -123,31 +123,45 @@ using System.Collections.Generic;
 
     }
 
-    public void getTimeTimetable(int id)
+    public string[] getTimeTimetable(int id)
     {
         string[] mass = new string[10];
-        try
+
+        string sql = "SELECT FlightDate, ScheduledTime, TypeAircraft, ct.Fuselage FROM `Timetable` as cn" +
+" LEFT JOIN `Type_Plane` as ct on ct.SocrT=cn.TypeAircraft" +
+            "   WHERE cn.id =" + id;
+        objComand = new MySqlCommand(sql, obj);
+
+        var readerP1 = objComand.ExecuteReader();
+
+        while (readerP1.Read())
         {
-            string sql = "SELECT * FROM `Timetable` WHERE id =" + id;
-            objComand = new MySqlCommand(sql, obj);
-
-            var reader = objComand.ExecuteReader();
-
-            while (reader.Read())
-            {
-                mass[0] = reader[0].ToString();
-                mass[1] = reader[1].ToString();
-            }
-
-            Console.WriteLine(mass[0] + " " + mass[1]);
-
-            reader.Close();
-
+           mass[0] = readerP1[0].ToString();
+           mass[1] = readerP1[1].ToString();
+           mass[2] = readerP1[2].ToString();
+           mass[3] = readerP1[3].ToString();
         }
-        catch (Exception ex)
-        {
-          Console.WriteLine("Error. The add request was not executed = " + ex.Message);
-        }
+        readerP1.Close();
+        
+        return mass;
     }
 
+    public string getKolodki(string id)
+    {
+        string mass="";
+
+        string sql = "SELECT TypeOfKolodka FROM `Kolodki`  WHERE TypeOfPlane = 737" ;
+        objComand = new MySqlCommand(sql, obj);
+
+        var readerP1 = objComand.ExecuteReader();
+
+        while (readerP1.Read())
+        {
+            mass = readerP1[0].ToString();
+        }
+        readerP1.Close();
+
+        return mass;
     }
+
+}

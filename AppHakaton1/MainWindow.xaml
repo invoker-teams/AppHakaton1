@@ -9,10 +9,10 @@
     <Grid>
         <Button Content="Загрузить файл с расписанием" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="177" Height="36" Click="Button_Click"/>
         <Canvas HorizontalAlignment="Left" Height="32" Margin="529,240,0,0" VerticalAlignment="Top" Width="31"/>
-        <DataGrid AutoGenerateColumns="True" IsReadOnly="True" HorizontalAlignment="Center" Name="dGrid" VerticalAlignment="Center" Height="198" Margin="330,0,10,221" Width="452" RenderTransformOrigin="0.535,0.409"/>
         <TextBox x:Name="txtFilePath" HorizontalAlignment="Left" Height="23" Margin="607,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="10,143,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Button Content="Очистить базу данных" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="177" Height="41" Click="Button_Click_1"/>
-        <Button Content="Получить данные" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Width="177" Height="37" Click="Button_Click_2"/>
+        <Button Content="Получить данные" HorizontalAlignment="Left" Margin="10,252,0,0" VerticalAlignment="Top" Width="177" Height="40" Click="Button_Click_2"/>
+        <TextBlock Name="result" HorizontalAlignment="Left" Height="20" Margin="242,272,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="87"/>
     </Grid>
 </Window>
