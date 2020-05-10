@@ -7,6 +7,7 @@ using Microsoft.Office.Interop;
 using System.IO;
 using Microsoft.Win32;
 using System.Data;
+using Microsoft.SqlServer.Server;
 
 namespace AppHakaton1
 {
@@ -67,7 +68,7 @@ namespace AppHakaton1
             int colCnt = 0; //столбец
             int[] mass = new int[10];
             DataTable dt = new DataTable();
-            DateTime FlightDate = new DateTime();
+            string FlightDate = "";// new DateTime();
             TimeSpan ScheduledTime = new TimeSpan();
             int AirlineCode=0,FlightNumber=0;
             string CodeA = "", FlagArrivalDeparture = "", TypeAircraft = "", AParking = "", ParkingSector = "", NameAirline = "";
@@ -80,7 +81,7 @@ namespace AppHakaton1
                     {
                         case 1:
                             douCellData = (excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2;
-                            FlightDate = DateTime.FromOADate(douCellData);
+                            FlightDate = DateTime.FromOADate(douCellData).ToString("yyyy-MM-dd");    
                             break;
                         case 2:
                             DateTime dt3 = new DateTime(2000, 2, 3, 10, 20, 30);
