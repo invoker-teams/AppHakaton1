@@ -92,59 +92,62 @@ using System.Collections.Generic;
             }
         }
 
-        public void clearTableDB(string NameTable)
-        {
-            try
-            {
-                string sql = "TRUNCATE TABLE `" + NameTable + "`";
-                objComand = new MySqlCommand(sql, obj);
-                objComand.ExecuteScalar();
-            }
-            catch
-            {
+    public void clearTableDB(string NameTable)
+    {
+         try
+         {
+            string sql = "TRUNCATE TABLE `" + NameTable + "`";
+            objComand = new MySqlCommand(sql, obj);
+            objComand.ExecuteScalar();
+         }
+         catch
+         {
 
-            }
-        }
+         }
+    }
 
     public void DeletRowTimeT_FlightNumber(int FlightNumber)
-        {
-            try
-            {
-                string sql = "DELETE FROM `Timetable` WHERE FlightNumber =" + FlightNumber;
-                objComand = new MySqlCommand(sql, obj);
-                objComand.ExecuteScalar();
+    {
+       try
+       {
+          string sql = "DELETE FROM `Timetable` WHERE FlightNumber =" + FlightNumber;
+          objComand = new MySqlCommand(sql, obj);
+          objComand.ExecuteScalar();
 
-                Console.WriteLine("Note is delete");
-            }
-            catch
+          Console.WriteLine("Note is delete");
+       }
+       catch
+       {
+          Console.WriteLine("Error. The add request was not executed");
+       }
+
+    }
+
+    public void getTimeTimetable(int id)
+    {
+        string[] mass = new string[10];
+        try
+        {
+            string sql = "SELECT * FROM `Timetable` WHERE id =" + id;
+            objComand = new MySqlCommand(sql, obj);
+
+            var reader = objComand.ExecuteReader();
+
+            while (reader.Read())
             {
-                Console.WriteLine("Error. The add request was not executed");
+                mass[0] = reader[0].ToString();
+                mass[1] = reader[1].ToString();
             }
+
+            Console.WriteLine(mass[0] + " " + mass[1]);
+
+            reader.Close();
 
         }
-
-        public void getTimeTimetable(int FlightNumber)
+        catch (Exception ex)
         {
-            var result = new List<string>();
-            try
-            {
-                string sql = "SELECT `AirlineCode` FROM `Timetable` WHERE FlightNumber =" + FlightNumber;
-                objComand = new MySqlCommand(sql, obj);
-
-                //Console.WriteLine(objComand.ExecuteScalar().ToString());
-                var reader = objComand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    result.Add(reader.GetString(0));
-                }
-                reader.Close();
-
-                string[] a = result.ToArray();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error. The add request was not executed = " + ex.Message);
-            }
+          Console.WriteLine("Error. The add request was not executed = " + ex.Message);
         }
+    }
+
     }

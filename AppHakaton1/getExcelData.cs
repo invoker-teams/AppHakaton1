@@ -115,17 +115,8 @@ namespace AppHakaton1
             }
             objSQL.closeSessionMySQL();
 
-            x = true;
-        }
-
-        /*
-         * Метод для закрытия работы с excel
-         */
-        public void closeExl()
-        {
             excelBook.Close(true, null, null);
             excelApp.Quit();
         }
-
     }
 }

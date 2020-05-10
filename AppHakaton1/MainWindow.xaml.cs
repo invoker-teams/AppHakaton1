@@ -28,9 +28,13 @@ namespace AppHakaton1
         OpenFileDialog openfile;
         Thread threadExl;
         getExcelData objExl;
+        DB_MySQL objSQL;
         public MainWindow()
         {
             InitializeComponent();
+            objSQL = new DB_MySQL("sql7.freesqldatabase.com", 3306, "sql7338923", "sql7338923", "bc9vSYmu5u");
+
+            objSQL.openSessionMySQL();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,32 +51,19 @@ namespace AppHakaton1
             {
                 objExl = new getExcelData(openfile.FileName.ToString());
                 objExl.pushDB();
-                /*threadExl = new Thread(new ThreadStart(objExl.pushDB));
-
-                threadExl.Start();
-
-                while(objExl.reStat()!=true)
-                {
-                    
-                }
-                threadExl.Abort();*/
-
-                //objExl.pushDB();             
-
-
-                /*excelBook.Close(true, null, null);
-                excelApp.Quit();*/
             }
 
 
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            objSQL.clearTableDB("Timetable");
+        }
 
-
-        /* DB_MySQL objSQL = new DB_MySQL("sql7.freesqldatabase.com", 3306, "sql7338923", "sql7338923", "bc9vSYmu5u");
-
-  objSQL.openSessionMySQL();
-
-  MessageBox.Show("Доступ есть? " + objSQL.statusOpenSession().ToString());*/
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            objSQL.getTimeTimetable(2);
+        }
     }
 }
