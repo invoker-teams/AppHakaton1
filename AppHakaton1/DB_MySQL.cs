@@ -60,7 +60,7 @@ using System.Collections.Generic;
            return obj.Ping();
         }
 
-        public void CreatingNewRowTimetable(string FlightDate, string ScheduledTime, string CodeA, int AirlineCode, int FlightNumber, string FlagArrivalDeparture, string TypeAircraft, string AParking, string ParkingSector, string NameAirline)
+        public void CreatingNewRowTimetable(string FlightDate, string ScheduledTime, string CodeA, int AirlineCode, string FlightNumber, string FlagArrivalDeparture, string TypeAircraft, string AParking, string ParkingSector, string NameAirline)
         {
             try
             {

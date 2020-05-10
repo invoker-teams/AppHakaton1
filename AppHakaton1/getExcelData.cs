@@ -69,8 +69,8 @@ namespace AppHakaton1
             int[] mass = new int[10];
             DataTable dt = new DataTable();
             string FlightDate = "";// new DateTime();
-            string ScheduledTime = ""; //= new TimeSpan();
-            int AirlineCode=0,FlightNumber=0;
+            string ScheduledTime = "", FlightNumber = ""; //= new TimeSpan();
+            int AirlineCode=0;
             string CodeA = "", FlagArrivalDeparture = "", TypeAircraft = "", AParking = "", ParkingSector = "", NameAirline = "";
             for (rowCnt = 1; rowCnt <= excelRange.Rows.Count; rowCnt++)
             {
@@ -94,10 +94,10 @@ namespace AppHakaton1
                             AirlineCode = (int)(excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2;
                             break;
                         case 5:
-                            //FlightNumber = Convert.ToInt16((excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
+                            FlightNumber = (string)(excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2;
                             break;
                         case 6:
-                            FlagArrivalDeparture = (string)(excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2;
+                                FlagArrivalDeparture = Convert.ToString((excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
                             break;
                         case 7:
                             TypeAircraft = Convert.ToString((excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
