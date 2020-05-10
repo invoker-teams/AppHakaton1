@@ -69,10 +69,10 @@ namespace AppHakaton1
             int[] mass = new int[10];
             DataTable dt = new DataTable();
             string FlightDate = "";// new DateTime();
-            TimeSpan ScheduledTime = new TimeSpan();
+            string ScheduledTime = ""; //= new TimeSpan();
             int AirlineCode=0,FlightNumber=0;
             string CodeA = "", FlagArrivalDeparture = "", TypeAircraft = "", AParking = "", ParkingSector = "", NameAirline = "";
-            for (rowCnt = 2; rowCnt <= excelRange.Rows.Count; rowCnt++)
+            for (rowCnt = 1; rowCnt <= excelRange.Rows.Count; rowCnt++)
             {
                 string strData = "";
                 for (colCnt = 1; colCnt <= excelRange.Columns.Count; colCnt++)
@@ -84,9 +84,8 @@ namespace AppHakaton1
                             FlightDate = DateTime.FromOADate(douCellData).ToString("yyyy-MM-dd");    
                             break;
                         case 2:
-                            DateTime dt3 = new DateTime(2000, 2, 3, 10, 20, 30);
                             douCellData = (excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2;
-                            ScheduledTime = dt3.TimeOfDay;
+                            ScheduledTime = DateTime.FromOADate(douCellData).ToLongTimeString().ToString();
                             break;
                          case 3:
                             CodeA = (string)(excelRange.Cells[rowCnt, colCnt] as Microsoft.Office.Interop.Excel.Range).Value2;
